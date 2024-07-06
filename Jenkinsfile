@@ -9,7 +9,9 @@ pipeline {
     stages {
         stage('Git checkout') {
             steps {
-                git branch'
+                script {
+                    git branch: 'main', credentialsId: 'your_git_credentials_id', url: 'https://github.com/NikhilP1997/My-Frontend-task.git'
+                }
             }
         }
         
@@ -25,15 +27,10 @@ pipeline {
             }
         }
 
-
-        stage('Deploy to s3') {
+        stage('Deploy to S3') {
             steps {
                 sh "aws s3 sync dist/hadiya_products_admin/ s3://${S3_BUCKET_NAME} --delete --exact-timestamps"
             }
         }
-        
-
-
-        
     }
 }
