@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiGatewayURL: 'http://localhost:3000'
+  apiGatewayURL: 'http://test-alb-1189752668.us-east-2.elb.amazonaws.com'
 };
 
 /*
